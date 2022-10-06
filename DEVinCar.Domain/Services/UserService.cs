@@ -6,12 +6,12 @@ using DEVinCar.Domain.Interfaces.Services;
 
 namespace DEVinCar.Domain.Services
 {
-    public class UserServico : IUserServico
+    public class UserService : IUserService
     {
         private readonly IUserRepositorio _userRepositorio;
         private readonly ISaleRepositorio _saleRepositorio;
 
-        public UserServico(IUserRepositorio userRepositorio, ISaleRepositorio saleRepositorio)
+        public UserService(IUserRepositorio userRepositorio, ISaleRepositorio saleRepositorio)
         {
             _userRepositorio = userRepositorio;
             _saleRepositorio = saleRepositorio;

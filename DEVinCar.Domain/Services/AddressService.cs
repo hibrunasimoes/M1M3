@@ -6,11 +6,11 @@ using DEVinCar.Domain.Interfaces.Services;
 
 namespace DEVinCar.Domain.Services
 {
-    public class AddressServico : IAddressService
+    public class AddressService : IAddressService
     {
         private readonly IAddressRepositorio _addressRepositorio;
 
-        public AddressServico(IAddressRepositorio addressRepositorio)
+        public AddressService(IAddressRepositorio addressRepositorio)
         {
             _addressRepositorio = addressRepositorio;
         }
