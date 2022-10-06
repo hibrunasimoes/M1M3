@@ -1,6 +1,7 @@
 ﻿using System;
 using DEVinCar.Api.DTOs;
 using DEVinCar.Api.Models;
+using DEVinCar.Domain.Exceptions;
 using DEVinCar.Domain.Interfaces.Repositories;
 using DEVinCar.Domain.Interfaces.Services;
 
@@ -17,27 +18,51 @@ namespace DEVinCar.Domain.Services
 
         public void Atualizar(CarDTO car)
         {
-            throw new NotImplementedException();
+            var carDb = _carRepositorio.ObterPorId(car.Id);
+            carDb.Update(car);
+            _carRepositorio.Atualizar(carDb);
         }
 
         public void Excluir(int id)
         {
-            throw new NotImplementedException();
+            var car = _carRepositorio.ObterPorId(id);//ok
+            _carRepositorio.Excluir(car);
         }
 
         public void Inserir(CarDTO car)
         {
-            throw new NotImplementedException();
+            if (_carRepositorio.ExisteCarro(car.Id))
+                throw new DuplicadoException("Carro já existe");
+
+            _carRepositorio.Inserir(new Car(car));
         }
 
         public CarDTO ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return new CarDTO(_carRepositorio.ObterPorId(id)); //ok
+
         }
 
-        public IList<Car> ObterTodos()
+        public IList<Car> ObterTodos(string name, decimal? priceMin, decimal? priceMax)
         {
-            throw new NotImplementedException();
+            var query = _carRepositorio.QueryMetodo();
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(c => c.Name.Contains(name));
+            }
+            //if (priceMin > priceMax)
+            //{
+            //    return BadRequest();
+            //}
+            if (priceMin.HasValue)
+            {
+                query = query.Where(c => c.SuggestedPrice >= priceMin);
+            }
+            if (priceMax.HasValue)
+            {
+                query = query.Where(c => c.SuggestedPrice <= priceMax);
+            }
+            return query.ToList();
         }
     }
 }

@@ -17,6 +17,7 @@
     <None Remove="Interfaces\Services\" />
     <None Remove="Services\" />
     <None Remove="Enums\" />
+    <None Remove="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -28,6 +29,7 @@
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Services\" />
     <Folder Include="Enums\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
