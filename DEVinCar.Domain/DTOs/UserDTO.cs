@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using DEVinCar.Api.Annotations;
 using DEVinCar.Api.Models;
+using DEVinCar.Domain.Enums;
 
 namespace DEVinCar.Api.DTOs{
     public class UserDTO{
@@ -22,6 +23,7 @@ namespace DEVinCar.Api.DTOs{
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [CheckAgeAttribute(18)]
         public DateTime BirthDate { get; set; }
+        public Permissoes Role { get; set; }
 
 
         public UserDTO()
@@ -34,6 +36,7 @@ namespace DEVinCar.Api.DTOs{
             Email = user.Email;
             Password = user.Password;
             BirthDate = user.BirthDate;
+            Role = user.Role;
         }
 
     }
