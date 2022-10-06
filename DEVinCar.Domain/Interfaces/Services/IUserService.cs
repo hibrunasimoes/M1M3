@@ -13,7 +13,7 @@ namespace DEVinCar.Domain.Interfaces.Services
         void Atualizar(UserDTO user);
         List<Sale> ObterSales(int userid);
         List<Sale> ObterBuy(int userid);
-        //User ObterPorUsuario(UserLoginDTO user);
+        User ObterPorUsuario(string email, string password);
 
     }
 }
