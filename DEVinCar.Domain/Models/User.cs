@@ -1,3 +1,6 @@
+using DEVinCar.Api.DTOs;
+using System.Data;
+
 namespace DEVinCar.Api.Models
 {
     public class User
@@ -19,6 +22,22 @@ namespace DEVinCar.Api.Models
             Password = password;
             Name = name;
             BirthDate = birthDate;
+        }
+
+        public User(UserDTO user)
+        {
+            Name = user.Name;
+            Email = user.Email;
+            Password = user.Password;
+            BirthDate = user.BirthDate;
+        }
+
+        public void Update(UserDTO user)
+        {
+            Name = user.Name;
+            Email = user.Email;
+            Password = user.Password;
+            BirthDate = user.BirthDate;
         }
     }
 }

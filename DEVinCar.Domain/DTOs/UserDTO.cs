@@ -5,6 +5,7 @@ using DEVinCar.Api.Models;
 
 namespace DEVinCar.Api.DTOs{
     public class UserDTO{
+        public int Id { get; set; }
         [Required(ErrorMessage = "The name is required")]
         [MaxLength(255)]
         public string Name { get; set; }

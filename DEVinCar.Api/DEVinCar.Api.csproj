@@ -8,6 +8,8 @@
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,9 +24,15 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Config\" />
     <None Remove="Config\IOC\" />
+    <None Remove="Microsoft.AspNetCore.Authentication" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Security\" />
+    <None Remove="Service\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Config\IOC\" />
+    <Folder Include="Security\" />
+    <Folder Include="Service\" />
   </ItemGroup>
 </Project>
