@@ -1,13 +1,16 @@
 
+using System.Data;
 using DEVinCar.Api.Data;
 using DEVinCar.Api.DTOs;
 using DEVinCar.Api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DEVinCar.Api.Controllers;
 
 [ApiController]
 [Route("api/car")]
+[Authorize(Roles = "Gerente")]
 public class CarController : ControllerBase
 {
     private readonly DevInCarDbContext _context;

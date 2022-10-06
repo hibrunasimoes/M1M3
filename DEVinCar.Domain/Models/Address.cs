@@ -1,3 +1,5 @@
+using DEVinCar.Api.DTOs;
+
 namespace DEVinCar.Api.Models
 {
     public class Address
@@ -12,5 +14,35 @@ namespace DEVinCar.Api.Models
         public virtual City City { get; set; }
 
         public virtual List<Delivery> Deliveries {get; set;}
+
+
+        public Address()
+        {
+        }
+
+        public Address(AdressDTO address)
+        {
+            Street = address.Street;
+            Cep = address.Cep;
+            Number = address.Number;
+            Complement = address.Complement;
+        }
+
+        public void Update(AdressDTO address)
+        {
+            Street = address.Street;
+            Cep = address.Cep;
+            Number = address.Number;
+            Complement = address.Complement;
+
+        }
+        public void Update(AddressPatchDTO addressPatch)
+        {
+            Street = addressPatch.Street;
+            Cep = addressPatch.Cep;
+            Number = addressPatch.Number;
+            Complement = addressPatch.Complement;
+
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Security.AccessControl;
 using System;
 using Microsoft.EntityFrameworkCore;
+using DEVinCar.Api.DTOs;
 
 namespace DEVinCar.Api.Models;
 public class Delivery
@@ -13,5 +14,17 @@ public class Delivery
     public virtual Sale Sale { get; set; }
     public Delivery()
     {
-    }  
+    }
+
+    public Delivery(DeliveryDTO delivery)
+    {
+        AddressId = (int)delivery.AddressId;
+        DeliveryForecast = (DateTime)delivery.DeliveryForecast;
+    }
+
+    public void Update(DeliveryDTO delivery)
+    {
+        AddressId = (int)delivery.AddressId;
+        DeliveryForecast = (DateTime)delivery.DeliveryForecast;
+    }
 }
