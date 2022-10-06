@@ -76,6 +76,7 @@ public class CarController : ControllerBase
         _context.Cars.Add(car);
         _context.SaveChanges();
         return Created("api/car", car);
+        // return StatusCode(StatusCodes.Status201Created);
     }
 
     [HttpDelete("{carId}")]

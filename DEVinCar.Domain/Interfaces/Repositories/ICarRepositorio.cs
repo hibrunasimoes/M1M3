@@ -15,7 +15,7 @@ namespace DEVinCar.Domain.Interfaces.Repositories
 
         void Excluir(Car car);
 
-        //IQueryable<Car> Query();
+        IQueryable<Car> QueryMetodo();
 
         bool ExisteCarro(int id);
 

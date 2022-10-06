@@ -17,15 +17,10 @@ namespace DEVinCar.Infra.Data.Repositories
             return _contexto.Cars.Any(x => x.Id == id);
         }
 
-        //public List<Car> ObterPorNome(string nome)
-        //{
-        //    return _contexto.Cars.Where(x => x.Name == nome).ToList();
-        //}
-
-        //public IQueryable<Car> Query()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public IQueryable<Car> Query()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

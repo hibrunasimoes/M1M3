@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json.Serialization;
+using DEVinCar.Api.Config;
 using DEVinCar.Api.Config.IOC;
 using DEVinCar.Api.Data;
 using DEVinCar.Api.Security;
@@ -61,8 +62,10 @@ builder.Services.AddScoped<ICityService, CityService>();
 builder.Services.AddScoped<IStateService, StateService>();
 builder.Services.AddScoped<IDeliveryService, DeliveryService>();
 
-
 var app = builder.Build();
+
+app.UseMiddleware<ErrorMiddleware>();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
