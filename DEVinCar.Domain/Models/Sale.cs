@@ -2,7 +2,7 @@
 {
     public class Sale
     {
-        public int Id { get; internal set; }
+        public int Id { get; set; }
         public DateTime SaleDate { get; set; }
         public int BuyerId { get; set; }
         public int SellerId { get; set; }

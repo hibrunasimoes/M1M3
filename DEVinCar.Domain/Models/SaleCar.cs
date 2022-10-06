@@ -2,7 +2,7 @@
 {
     public class SaleCar
     {
-        public int Id { get; internal set; }
+        public int Id { get; set; }
         public decimal UnitPrice { get; set; }
         public int? Amount { get; set; }
         public int CarId { get; set; }
