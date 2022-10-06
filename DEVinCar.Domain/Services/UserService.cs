@@ -19,32 +19,38 @@ namespace DEVinCar.Domain.Services
 
         public void Atualizar(UserDTO user)
         {
-            throw new NotImplementedException();
+            var userDb = _userRepositorio.ObterPorId(user.Id);
+            userDb.Update(user);
+            _userRepositorio.Atualizar(userDb);
         }
 
         public void Excluir(int id)
         {
-            throw new NotImplementedException();
+            var user = _userRepositorio.ObterPorId(id);
+            _userRepositorio.Excluir(user);
         }
 
         public void Inserir(UserDTO user)
         {
-            throw new NotImplementedException();
+            //var oldUser = _userRepositorio.ObterPorUsuario(user.Email, user.Password);
+
+            //if (oldUser != null)
+            //_userRepositorio.Inserir(new User(user));
         }
 
         public List<Sale> ObterBuy(int userid)
         {
-            throw new NotImplementedException();
+            return _saleRepositorio.ObterBuy(userid);
         }
 
         public UserDTO ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return new UserDTO(_userRepositorio.ObterPorId(id));
         }
 
         public List<Sale> ObterSales(int userid)
         {
-            throw new NotImplementedException();
+            return _saleRepositorio.ObterSales(userid);
         }
 
         public IList<User> ObterTodos()
