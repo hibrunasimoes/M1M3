@@ -4,7 +4,7 @@ using DEVinCar.Api.Models;
 
 namespace DEVinCar.Domain.Interfaces.Services
 {
-    public interface IUserServico
+    public interface IUserService
     {
         IList<User> ObterTodos();
         UserDTO ObterPorId(int id);

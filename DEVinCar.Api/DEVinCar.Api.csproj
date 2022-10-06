@@ -20,5 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Config\" />
+    <None Remove="Config\IOC\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="Config\IOC\" />
   </ItemGroup>
 </Project>
