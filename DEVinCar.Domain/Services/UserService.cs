@@ -48,6 +48,15 @@ namespace DEVinCar.Domain.Services
             return new UserDTO(_userRepositorio.ObterPorId(id));
         }
 
+        public User ObterPorUsuario(string email, string password)
+        {
+            var usuarioBd = _userRepositorio.ObterPorUsuario(email, password);
+
+            return usuarioBd;
+
+            //return (_userRepositorio.ObterPorUsuario(user.Password, user.Email));
+        }
+
         public List<Sale> ObterSales(int userid)
         {
             return _saleRepositorio.ObterSales(userid);

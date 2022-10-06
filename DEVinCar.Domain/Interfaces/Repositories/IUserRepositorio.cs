@@ -15,7 +15,7 @@ namespace DEVinCar.Domain.Interfaces.Repositories
 
         void Excluir(User user);
 
-        //public User ObterPorUsuario(string email, string password);
+        public User ObterPorUsuario(string email, string password);
     }
 }
 
