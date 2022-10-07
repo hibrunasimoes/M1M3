@@ -2,19 +2,26 @@
 using DEVinCar.Api.Data;
 using DEVinCar.Api.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using DEVinCar.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEVinCar.Api.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/user")]
 
 public class UserController : ControllerBase
 {
     private readonly DevInCarDbContext _context;
+    private readonly IUserService _userService;
+    private readonly ISaleService _saleService;
 
-    public UserController(DevInCarDbContext context)
+    public UserController(DevInCarDbContext context, IUserService userService, ISaleService saleService)
     {
         _context = context;
+        _userService = userService;
+        _saleService = saleService;
     }
 
     [HttpGet]
@@ -57,7 +64,7 @@ public class UserController : ControllerBase
         [FromRoute] int id
     )
     {
-        var user = _context.Users.Find(id);
+        var user = _userService.ObterPorId(id);
         if (user == null) return NotFound();
         return Ok(user);
     }

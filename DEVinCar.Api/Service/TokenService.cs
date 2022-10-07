@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.OpenApi.Extensions;
 
 namespace DEVinCar.Api.Service
 {
@@ -22,7 +23,7 @@ namespace DEVinCar.Api.Service
                 {
                     new Claim(ClaimTypes.Name, user.Name),
                     new Claim(ClaimTypes.Email, user.Email),
-                    //new Claim(ClaimTypes.Role, user.Role.GetDisplayName())
+                    new Claim(ClaimTypes.Role, user.Role.GetDisplayName())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

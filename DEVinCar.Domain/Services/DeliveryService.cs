@@ -17,10 +17,27 @@ namespace DEVinCar.Domain.Services
 
         public DeliveryDTO ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return new DeliveryDTO(_deliveryRepositorio.ObterPorId(id));
         }
 
         public IList<Delivery> ObterTodos(int? id, int? addressId, int? saleId)
+        {
+            var query = _deliveryRepositorio.QueryMetodo();
+
+            if (addressId.HasValue)
+            {
+                query = query.Where(a => a.AddressId == addressId);
+            }
+
+            if (saleId.HasValue)
+            {
+                query = query.Where(s => s.SaleId == saleId);
+            }
+
+            return query.ToList();
+        }
+
+        public IQueryable<Delivery> QueryMetodo()
         {
             throw new NotImplementedException();
         }

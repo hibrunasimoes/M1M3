@@ -4,40 +4,36 @@ using DEVinCar.Api.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Runtime.ConstrainedExecution;
+using Microsoft.AspNetCore.Authorization;
+using DEVinCar.Domain.Interfaces.Services;
 
 namespace DEVinCar.Api.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/deliver")]
     public class DeliverController : ControllerBase
     {
-        private readonly DevInCarDbContext _context;
-        public DeliverController(DevInCarDbContext context)
+        //private readonly DevInCarDbContext _context;
+
+        //public DeliverController(DevInCarDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IDeliveryService _deliveryService;
+        public DeliverController(IDeliveryService deliveryService)
         {
-            _context = context;
+            _deliveryService = deliveryService;
         }
+
 
         [HttpGet]
         public ActionResult<Delivery> Get(
         [FromQuery] int? addressId,
         [FromQuery] int? saleId)
         {
-            var query = _context.Deliveries.AsQueryable();
-
-            if (addressId.HasValue)
-            {
-                query = query.Where(a => a.AddressId == addressId);
-            }
-
-            if (saleId.HasValue)
-            {
-                query = query.Where(s => s.SaleId == saleId);
-            }
-                      
-            if (!query.ToList().Any())
-            {
-                return NoContent();
-            }
+            var query = _deliveryService.QueryMetodo();
 
             return Ok(query.ToList());
        

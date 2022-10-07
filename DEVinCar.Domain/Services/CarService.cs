@@ -25,7 +25,7 @@ namespace DEVinCar.Domain.Services
 
         public void Excluir(int id)
         {
-            var car = _carRepositorio.ObterPorId(id);//ok
+            var car = _carRepositorio.ObterPorId(id);
             _carRepositorio.Excluir(car);
         }
 
@@ -39,7 +39,7 @@ namespace DEVinCar.Domain.Services
 
         public CarDTO ObterPorId(int id)
         {
-            return new CarDTO(_carRepositorio.ObterPorId(id)); //ok
+            return new CarDTO(_carRepositorio.ObterPorId(id));
 
         }
 

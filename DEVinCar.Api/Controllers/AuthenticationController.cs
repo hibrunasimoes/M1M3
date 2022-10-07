@@ -19,7 +19,7 @@ namespace DEVinCar.Api.Controllers
         [HttpPost]
         [Route("login")]
         public IActionResult Login(
-        [FromBody] UserLoginDTO DTO) // UserLoginDTO DTO
+        [FromBody] UserLoginDTO DTO) 
         {
             var user = _userServico.ObterPorUsuario(DTO.Email, DTO.Password);
 

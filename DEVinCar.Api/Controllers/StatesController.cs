@@ -4,9 +4,11 @@ using DEVinCar.Api.DTOs;
 using DEVinCar.Api.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DEVinCar.Api.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/state")]
 public class StatesController : ControllerBase
