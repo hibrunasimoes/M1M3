@@ -8,6 +8,7 @@ namespace DEVinCar.Domain.Interfaces.Services
     {
         IList<Delivery> ObterTodos(int? id, int? addressId, int? saleId);
         DeliveryDTO ObterPorId(int id);
+        public IQueryable<Delivery> QueryMetodo();
     }
 
 }

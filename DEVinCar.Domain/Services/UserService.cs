@@ -32,10 +32,10 @@ namespace DEVinCar.Domain.Services
 
         public void Inserir(UserDTO user)
         {
-            //var oldUser = _userRepositorio.ObterPorUsuario(user.Email, user.Password);
+            var oldUser = _userRepositorio.ObterPorUsuario(user.Email, user.Password);
 
-            //if (oldUser != null)
-            //_userRepositorio.Inserir(new User(user));
+            if (oldUser != null)
+                _userRepositorio.Inserir(new User(user));
         }
 
         public List<Sale> ObterBuy(int userid)

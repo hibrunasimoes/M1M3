@@ -5,9 +5,12 @@ using DEVinCar.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DEVinCar.Api.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace DEVinCar.Api.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/sales")]
 public class SalesController : ControllerBase
@@ -44,7 +47,7 @@ public class SalesController : ControllerBase
         if (sales == null) return NotFound();
         return Ok(sales);
     }
-
+    [Authorize(Roles = "Vendedor, Gerenete")]
     [HttpPost("{saleId}/item")]
     public ActionResult<SaleCar> PostSale(
        [FromBody] SaleCarDTO body,
